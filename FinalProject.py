@@ -16,7 +16,7 @@ def most_expensive_ubers(data, col):
     # Creates a map of most expensive Ubers
 
     # Creates a bar chart of most expensive Ubers
-    data["fare_amount"].astype(int).value_counts().plot(kind="bar", color=col)
+    data["passenger_count"].astype(int).value_counts().plot(kind="bar", color=col)
     plt.xlabel("Key")
     plt.ylabel("Price")
     plt.title("Top 5 Most Expensive Ubers")
