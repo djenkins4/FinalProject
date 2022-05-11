@@ -43,7 +43,7 @@ def lineplot(data):
     plt.xlabel('Number of Passengers')
     plt.ylabel('Fare')
     plt.title('Relationship Between Number of Passengers and Fare')
-    plt.xticks(passengers)
+    plt.xticks(1, 2, 3, 4, 5, 6)
     plt.yticks(fare)
     return plt
 
