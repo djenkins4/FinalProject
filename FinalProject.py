@@ -52,7 +52,7 @@ def main():
         st.pyplot(frequency_of_passengers(data, 'green'), clear_figure=True)
     elif page == "Map":
         st.title("Map of Dropoffs")
-        map(data)
+        map_of_dropoffs(data)
 
 
 main()
