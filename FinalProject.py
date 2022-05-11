@@ -12,14 +12,14 @@ import csv
 import pydeck as pdk
 
 
-def most_expensive_ubers(data, col):
+def frequency_of_passengers(data, col):
     # Creates a map of most expensive Ubers
 
-    # Creates a bar chart of most expensive Ubers
+    # Creates a bar chart of the frequency of each possible number of passengers in an Uber
     data["passenger_count"].astype(int).value_counts().plot(kind="bar", color=col)
-    plt.xlabel("Key")
-    plt.ylabel("Price")
-    plt.title("Top 5 Most Expensive Ubers")
+    plt.xlabel("Number of Passengers")
+    plt.ylabel("Number of Ubers")
+    plt.title("Number of Ubers Carrying Each Possible Number of Passengers")
     return plt
 
 # def number_of_passengers
@@ -40,7 +40,7 @@ def main():
         st.markdown(sub2_title, unsafe_allow_html=True)
     elif page == "Bar Chart":
         st.title("Bar Chart")
-        st.pyplot(most_expensive_ubers(data, 'green'), clear_figure=True)
+        st.pyplot(frequency_of_passengers(data, 'green'), clear_figure=True)
 
 
 main()
