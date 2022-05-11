@@ -40,7 +40,7 @@ def main():
         st.markdown(sub2_title, unsafe_allow_html=True)
     elif page == "Bar Chart":
         st.title("Bar Chart")
-        st.pyplot(most_expensive_ubers(data, 'green'), clear_figure=True)
+        st.pyplot(data(data, 'green'), clear_figure=True)
 
 
 main()
