@@ -1,4 +1,4 @@
-""
+"""
 Name: Dylan Jenkins
 Data: Uber
 Description:
@@ -35,6 +35,17 @@ def pie_chart(data):
     plt.title("Percentage of Ubers Occupied by Each Possible Number of Passengers")
     return plt
 
+def lineplot(data):
+    
+    passengers = data["passenger_count"]
+    fare = data["fare_amount"]
+    plt.plot(passengers, fare)
+    plt.xlabel('Number of Passengers')
+    plt.ylabel('Fare')
+    plt.title('Relationship Between Number of Passengers and Fare')
+    plt.xticks(passengers)
+    plt.yticks(fare)
+    return plt
 
 def main():
     # Reads File
@@ -45,7 +56,7 @@ def main():
         if data.loc[x, "passenger_count"] < 1 or data.loc[x, "passenger_count"] > 6:
             data.drop(x, inplace=True)
     # Creates pages
-    page = st.sidebar.selectbox("Choose your page", ["Home Page", "Bar Chart", "Pie Chart", "Map"])
+    page = st.sidebar.selectbox("Choose your page", ["Home Page", "Bar Chart", "Pie Chart", "Map", "Scatter Plot"])
     if page == "Home Page":
         main_title = '<p style="font-family:sans-serif; color:Black; font-size: 42px;">Uber Data</p>'
         sub_title = '<p style="font-family:sans-serif; color:Black; font-size: 22px;"></p>'
@@ -63,6 +74,9 @@ def main():
     elif page == "Map":
         st.title("Map of Dropoffs")
         map_of_dropoffs(data)
+    elif page == "Scatter Plot":
+        st.title("Relationship Between Number of Passengers and Price")
+        st.pyplot(lineplot(data))
 
 
 main()
