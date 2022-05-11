@@ -30,8 +30,9 @@ def map_of_dropoffs(data, z=1):
     st.map(coordinates, zoom=z)
 
 def pie_chart(data):
-    colors = ["green", "grey", "black", "yellow", "red", "turquoise"]
+    colors = ["green", "grey", "pink", "yellow", "red", "turquoise"]
     data["passenger_count"].value_counts().plot(kind="pie", autopct="%1.1f%%", colors=colors)
+    plt.axis('off')
     plt.title("Percentage of Ubers Occupied by Each Possible Number of Passengers")
     return plt
 
