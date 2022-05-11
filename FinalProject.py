@@ -30,6 +30,9 @@ def frequency_of_passengers(data, col):
 def main():
     data = pd.read_csv('uber.csv')
     data = data.drop(labels=0, axis=0)
+    for x in data.index:
+        if data.loc[x, "passenger_count"] < 1 or data.loc[x, "passenger_count"] > 6:
+            data.drop(x, inplace=True)
     page = st.sidebar.selectbox("Choose your page", ["Home Page", "Bar Chart", "Pie Chart", "Map"])
     if page == "Home Page":
         main_title = '<p style="font-family:sans-serif; color:Black; font-size: 42px;">Uber Data</p>'
