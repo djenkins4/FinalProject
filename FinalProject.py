@@ -1,4 +1,4 @@
-"""
+""
 Name: Dylan Jenkins
 Data: Uber
 Description:
@@ -8,8 +8,6 @@ passengers and price?" and "What are the most common locations for pickup and dr
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
-import csv
-import pydeck as pdk
 
 
 def frequency_of_passengers(data, col):
@@ -29,12 +27,14 @@ def map_of_dropoffs(data, z=1):
     coordinates = coordinates.apply(pd.to_numeric)
     st.map(coordinates, zoom=z)
 
+
 def pie_chart(data):
     colors = ["green", "grey", "pink", "yellow", "red", "turquoise"]
     data["passenger_count"].value_counts().plot(kind="pie", autopct="%1.1f%%", colors=colors)
     plt.axis('off')
     plt.title("Percentage of Ubers Occupied by Each Possible Number of Passengers")
     return plt
+
 
 def main():
     # Reads File
