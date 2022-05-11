@@ -57,7 +57,8 @@ def main():
         st.pyplot(frequency_of_passengers(data, 'green'), clear_figure=True)
     elif page == "Pie Chart":
         st.title("Number of Passengers in Each Uber")
-        st.pyplot(pie_chart(data, clear_figure=True))
+        piechart = pie_chart(data)
+        st.pyplot(piechart, clear_figure=True)
     elif page == "Map":
         st.title("Map of Dropoffs")
         map_of_dropoffs(data)
