@@ -13,7 +13,6 @@ import pydeck as pdk
 
 
 def frequency_of_passengers(data, col):
-
     # Creates a bar chart of the frequency of each possible number of passengers in an Uber
     data["passenger_count"].astype(int).value_counts().plot(kind="bar", color=col)
     plt.xlabel("Number of Passengers")
@@ -21,14 +20,15 @@ def frequency_of_passengers(data, col):
     plt.title("Number of Ubers Carrying Each Possible Number of Passengers")
     return plt
 
-def map_of_dropoffs(data, z=1):
 
+def map_of_dropoffs(data, z=1):
     # Creates a map of dropoff locations
-    tup = ("lat", "lon") 
+    tup = ("lat", "lon")
     coordinates = data[["dropoff_latitude", "dropoff_longitude"]]
-    coordinates = coordinates.rename(columns = {'Latitude':tup[0], 'Longitude':tup[1]})
+    coordinates = coordinates.rename(columns={'dropoff_latitude': tup[0], 'dropoff_longitude': tup[1]})
     coordinates = coordinates.apply(pd.to_numeric)
     st.map(coordinates, zoom=z)
+
 
 def main():
     # Reads File
