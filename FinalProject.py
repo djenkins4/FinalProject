@@ -36,16 +36,15 @@ def pie_chart(data):
     return plt
 
 def lineplot(data):
-    
-    passengers = data["passenger_count"]
-    fare = data["fare_amount"]
-    plt.plot(passengers, fare)
-    plt.xlabel('Number of Passengers')
-    plt.ylabel('Fare')
-    plt.title('Relationship Between Number of Passengers and Fare')
-    plt.xticks([1, 2, 3, 4, 5, 6])
-    plt.yticks(fare)
-    return plt
+
+    # Creates a scatterplot showing the relationship between number of passengers and price of an Uber
+    fig, axs = plt.subplots()
+    axs.scatter(data["passenger_count"], data["fare_amount"], c='green')
+    axs.setylabel('Fare')
+    axs.setlabelx('Number of Passengers')
+    axs.legend()
+    st.pyplot(fig)
+
 
 def main():
     # Reads File
@@ -76,7 +75,7 @@ def main():
         map_of_dropoffs(data)
     elif page == "Scatter Plot":
         st.title("Relationship Between Number of Passengers and Price")
-        st.pyplot(lineplot(data))
+        lineplot(data)
 
 
 main()
