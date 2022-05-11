@@ -11,30 +11,6 @@ import matplotlib.pyplot as plt
 import csv
 import pydeck as pdk
 
-'''def passengers_and_price(x, y):
-    global data
-    # Creates scatter plot
-    plt.plot(passengers, price)
-    plt.xlabel('Number of Passengers')
-    plt.ylabel('Price')
-    plt.title('Relationship between Price and Passengers')
-    plt.xticks([1, 2, 3, 4, 5, 6])
-    plt.yticks(price)
-
-    num_pass = []
-    price_list = []
-    for row in data:
-        st.write(row)
-        num_pass = int(row["passenger_count"])  # values read in are strings!
-        price_list = float(row["fare_amount"])
-        passengers.append(num_pass)
-        price.append(price_list)
-
-    st.write("#ofPASSENGERS:", passengers)
-    st.write("PRICES:", price)
-
-    st.pyplot(passengers, price)'''
-
 
 def most_expensive_ubers(data, col):
     # Creates a map of most expensive Ubers
@@ -44,6 +20,7 @@ def most_expensive_ubers(data, col):
     plt.xlabel("key")
     plt.ylabel("Price")
     plt.title("Top 5 Most Expensive Ubers")
+    return plt
 
 
 # def number_of_passengers
