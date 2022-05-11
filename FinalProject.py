@@ -13,15 +13,16 @@ import pydeck as pdk
 
 
 def most_expensive_ubers(data, col):
+    data = data.sort_values(by="fare_amount", ascending=False)
+    most_expensive = data.max("fare_amount").nlargest(5)
     # Creates a map of most expensive Ubers
 
     # Creates a bar chart of most expensive Ubers
-    data["fare_amount"].astype(float).value_counts().plot(kind="bar", color=col)
-    plt.xlabel("key")
+    most_expensive["fare_amount"].astype(float).value_counts().plot(kind="bar", color=col)
+    plt.xlabel("Key")
     plt.ylabel("Price")
     plt.title("Top 5 Most Expensive Ubers")
     return plt
-
 
 # def number_of_passengers
 
