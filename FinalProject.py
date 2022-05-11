@@ -17,7 +17,7 @@ def frequency_of_passengers(data, col):
     data["passenger_count"].astype(int).value_counts().plot(kind="bar", color=col)
     plt.xlabel("Number of Passengers")
     plt.ylabel("Number of Ubers")
-    plt.title("Number of Ubers Carrying Each Possible Number of Passengers")
+    plt.title("Number of Ubers Occupied Each Possible Number of Passengers")
     return plt
 
 
@@ -29,6 +29,11 @@ def map_of_dropoffs(data, z=1):
     coordinates = coordinates.apply(pd.to_numeric)
     st.map(coordinates, zoom=z)
 
+def pie_chart(data):
+    colors = ["green", "grey", "black", "yellow", "red", "turquoise"]
+    data["passenger_count"].value_counts().plot(kind="pie", autopct="%1.1f%%", colors=colors)
+    plt.title("Percentage of Ubers Occupied by Each Possible Number of Passengers")
+    return plt
 
 def main():
     # Reads File
@@ -48,8 +53,11 @@ def main():
         sub2_title = '<p style="font-family:sans-serif; color:Black; font-size: 16px;">by Dylan Jenkins</p>'
         st.markdown(sub2_title, unsafe_allow_html=True)
     elif page == "Bar Chart":
-        st.title("Bar Chart")
+        st.title("Number of Passengers in Each Uber")
         st.pyplot(frequency_of_passengers(data, 'green'), clear_figure=True)
+    elif page == "Pie Chart":
+        st.title("Number of Passengers in Each Uber")
+        st.pyplot(pie_chart(data, clear_figure=True))
     elif page == "Map":
         st.title("Map of Dropoffs")
         map_of_dropoffs(data)
