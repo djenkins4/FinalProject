@@ -40,8 +40,8 @@ def lineplot(data):
     # Creates a scatterplot showing the relationship between number of passengers and price of an Uber
     fig, axs = plt.subplots()
     axs.scatter(data["passenger_count"], data["fare_amount"], c='green')
-    axs.setlabely('Fare')
-    axs.setlabelx('Number of Passengers')
+    axs.set_ylabel('Fare')
+    axs.set_xlabel('Number of Passengers')
     axs.legend()
     st.pyplot(fig)
 
